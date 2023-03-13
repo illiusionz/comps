@@ -8,7 +8,6 @@ function Accordion({ items }) {
     const handleClick = (nextIndex) => {
 
         console.log('STALE version of expandedIndex', expandedIndex);
-        
 
         setExpandedIndex((currentExpandedIndex) => {
             console.log('UP TO DATE version of Index', currentExpandedIndex);
