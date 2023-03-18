@@ -11,7 +11,7 @@ function Dropdown( { options, value, onChange } ) {
 
     useEffect(() => {
         const handler = (event) => {
-            console.log(divEl.current);
+            //console.log(divEl.current);
 
             if(!divEl.current){
                 return;
