@@ -16,7 +16,7 @@ function TablePage(){
         },
         {
             label: 'Color',
-            render: (fruit) => fruit.color,
+            render: (fruit) => <div className={`p-3 m-2 ${fruit.color}`}></div>,
         },
         {
             label: 'Score',
@@ -24,9 +24,13 @@ function TablePage(){
         },
     ];
 
+    const keyFn = (fruit) => {
+        return fruit.name;
+    };
+
     return (
         <div>
-            <Table config={config} data={data}/>
+            <Table config={config} data={data} keyFn={keyFn}/>
         </div>
     );
 }

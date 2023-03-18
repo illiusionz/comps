@@ -1,23 +1,22 @@
 
 
-function Table({ data, config }) {
+function Table({ data, config, keyFn }) {
 
     const renderHeaders = config.map((column) => {
-        return (
-            <th key={column.label}>{column.label}</th>
-        );
+        return <th key={column.label}>{column.label}</th>;
     });
 
-    const renderedRows = data.map((fruit) => {
-
+    const renderedRows = data.map((rowData) => {
         const renderCells = config.map((column) => {
             return (
-                <td className="p-2" key={column.label}>{column.render(fruit)}</td>
+                <td className="p-2" key={column.label}>
+                    {column.render(rowData)}
+                </td>
             );
         });
 
         return (
-            <tr className="border-b" key={fruit.name}>
+            <tr className="border-b" key={keyFn(rowData)}>
                 {renderCells}
             </tr>
         );
